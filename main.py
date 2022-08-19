@@ -66,6 +66,9 @@ class Snake():
             self.highscore = self.score
         self.score = 0
 
+    def get_speed(self):
+        return 10 + self.score//10 * 5
+
 
 class Food():
     def __init__(self):
@@ -126,7 +129,7 @@ def main():
     my_font = pygame.font.SysFont("monospace", 16)
 
     while True:
-        clock.tick(8)
+        clock.tick(snake.get_speed())
         snake.handle_keys()
         draw_grid(surface)
         snake.move()
